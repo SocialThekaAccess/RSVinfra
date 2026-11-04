@@ -1,0 +1,261 @@
+// Centralized data — images from Pexels CDN (reliable, no auth needed)
+// Format: https://images.pexels.com/photos/{id}/pexels-photo-{id}.jpeg?auto=compress&cs=tinysrgb&w={w}
+
+import skylineBT from '../assets/SkylineBusinessTower.png';
+
+export const px = (id, w = 1600) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+
+// Keep old img() alias so legacy references still compile
+export const img = px;
+
+export const commercialProjects = [
+  {
+    id: "skyline-business-tower",
+    name: "Skyline Business Tower",
+    tagline: "Where ambition meets address",
+    location: "Sector 62, Mohali",
+    type: "Grade-A Office",
+    price: "₹ 85 Lakh onwards",
+    area: "12,00,000 sq.ft.",
+    floors: "G + 28 Floors",
+    status: "Under Construction",
+    possession: "Dec 2027",
+    image: skylineBT,
+    gallery: [px(1170412), px(2157532)],
+    features: ["Double-height entrance lobby", "8 high-speed elevators", "100% power backup", "LEED Platinum certified", "Smart access control", "Multi-level parking for 1200 cars"],
+    description:
+      "Skyline Business Tower is a landmark Grade-A commercial development designed for enterprises that demand more than just office space. With column-free floor plates, panoramic glazing, and intelligent building systems, every floor is engineered for productivity and presence.",
+  },
+  {
+    id: "metro-trade-center",
+    name: "Metro Trade Center",
+    tagline: "Retail that draws the city",
+    location: "Aerocity Road, Mohali",
+    type: "Retail & Office",
+    price: "₹ 65 Lakh onwards",
+    area: "6,50,000 sq.ft.",
+    floors: "G + 12 Floors",
+    status: "Ready to Move",
+    possession: "Available Now",
+    image: px(1098460),
+    gallery: [px(2079249), px(1884581)],
+    features: ["Ground + first floor retail", "Food court with terrace seating", "Anchor store frontage", "Escalators on every level", "Central atrium with skylight", "Ample surface + basement parking"],
+    description:
+      "A mixed-use commercial hub blending premium retail with managed office suites. The central atrium floods the space with natural light, while the strategic location on Aerocity Road guarantees footfall and visibility for every brand that calls it home.",
+  },
+  {
+    id: "corporate-square",
+    name: "Corporate Square",
+    tagline: "Engineered for enterprise",
+    location: "Knowledge Park, New Chandigarh",
+    type: "Corporate Campus",
+    price: "₹ 1.2 Cr onwards",
+    area: "9,00,000 sq.ft.",
+    floors: "G + 20 Floors",
+    status: "New Launch",
+    possession: "Mar 2028",
+    image: px(2157532),
+    gallery: [px(323705), px(1170412)],
+    features: ["Campus-style development", "Dedicated CEO suites", "Conference & boardrooms", "Rooftop helipad access", "Fitness & wellness center", "Cafeteria for 800 guests"],
+    description:
+      "Corporate Square is a purpose-built corporate campus for organisations ready to make a statement. Spread across landscaped grounds, it combines signature low-rise blocks with a soaring tower, all wired for the technology needs of tomorrow.",
+  },
+  {
+    id: "the-hub-coworking",
+    name: "The Hub",
+    tagline: "Work, redefined",
+    location: "Industrial Area, Chandigarh",
+    type: "Co-working Space",
+    price: "₹ 25,000 / month",
+    area: "85,000 sq.ft.",
+    floors: "4 Floors",
+    status: "Ready to Move",
+    possession: "Available Now",
+    image: px(1170412),
+    gallery: [px(2157532), px(3182812)],
+    features: ["Hot desks & private cabins", "Meeting rooms on demand", "24x7 access", "High-speed fiber internet", "Lounge & game zone", "On-site cafe & barista"],
+    description:
+      "The Hub reimagines the workplace for freelancers, startups, and growing teams. Flexible memberships, designer lounges, and a thriving community make it the most desirable address for modern professionals who value freedom as much as focus.",
+  },
+  {
+    id: "grand-plaza",
+    name: "Grand Plaza",
+    tagline: "The address that sells itself",
+    location: "VIP Road, Zirakpur",
+    type: "Retail Mall",
+    price: "₹ 55 Lakh onwards",
+    area: "4,80,000 sq.ft.",
+    floors: "G + 6 Floors",
+    status: "Under Construction",
+    possession: "Jun 2026",
+    image: px(1884581),
+    gallery: [px(1098460), px(2079249)],
+    features: ["Anchor multiplex (5 screens)", "Anchor hypermarket", "Glass facade retail frontage", "Central climate control", "Valet parking service", "Event & promotion plaza"],
+    description:
+      "Grand Plaza is a complete retail destination designed to become the social heartbeat of Zirakpur. From flagship stores to a five-screen multiplex and a food court overlooking the city, it offers brands the kind of stage that turns visitors into customers.",
+  },
+  {
+    id: "tech-park-one",
+    name: "Tech Park One",
+    tagline: "Built for the future of work",
+    location: "IT City Road, Mohali",
+    type: "IT / SEZ",
+    price: "₹ 95 Lakh onwards",
+    area: "15,00,000 sq.ft.",
+    floors: "G + 24 Floors",
+    status: "Under Construction",
+    possession: "Sep 2027",
+    image: px(3182812),
+    gallery: [px(323705), px(2157532)],
+    features: ["SEZ-approved development", "Tier-3 data center ready", "Redundant power grids", "EV charging bays", "Rooftop solar array", "Landscaped breakout decks"],
+    description:
+      "Tech Park One is a SEZ-grade IT campus built for global technology companies. With fiber-redundant infrastructure, modular floor plates, and sustainability woven into every system, it is where scale and responsibility come together.",
+  },
+];
+
+export const residentialProjects = [
+  {
+    id: "aurelia-heights",
+    name: "Aurelia Heights",
+    tagline: "Life above the ordinary",
+    location: "Sector 66, Mohali",
+    type: "3 & 4 BHK Apartments",
+    price: "₹ 1.45 Cr onwards",
+    area: "8 acres",
+    floors: "G + 22 Floors",
+    units: "2 units per floor",
+    status: "Under Construction",
+    possession: "Dec 2026",
+    image: px(1396122),
+    gallery: [px(1571460), px(2102587)],
+    features: ["Only 2 units per floor", "Private lift lobby", "Italian marble flooring", "Floor-to-ceiling windows", "Modular kitchen with island", "Sky-deck lounge on top floor"],
+    description:
+      "Aurelia Heights is a collection of ultra-luxury 3 and 4 BHK residences where every home is a sky-villa. With just two apartments per floor, private lift lobbies, and panoramic city views, privacy and grandeur are the standard, not the exception.",
+  },
+  {
+    id: "serene-gardens",
+    name: "Serene Gardens Villas",
+    tagline: "Your private sanctuary",
+    location: "New Chandigarh",
+    type: "4 & 5 BHK Villas",
+    price: "₹ 3.2 Cr onwards",
+    area: "14 acres",
+    floors: "G + 3 Floors",
+    units: "Independent villas",
+    status: "New Launch",
+    possession: "Mar 2028",
+    image: px(1029599),
+    gallery: [px(2121121), px(1571460)],
+    features: ["Gated villa community", "Private lawn & terrace", "Home theatre room", "Private elevator in villa", "Double-height living area", "Solar-ready rooftops"],
+    description:
+      "Serene Gardens is an exclusive gated enclave of independent villas set amidst landscaped gardens and tree-lined boulevards. Each villa is a self-contained world with private lawns, double-height living spaces, and craftsmanship that turns a house into a legacy.",
+  },
+  {
+    id: "palm-residences",
+    name: "The Palm Residences",
+    tagline: "Resort living, everyday",
+    location: "Aerocity, Mohali",
+    type: "2 & 3 BHK Apartments",
+    price: "₹ 78 Lakh onwards",
+    area: "6 acres",
+    floors: "G + 18 Floors",
+    units: "4 units per floor",
+    status: "Ready to Move",
+    possession: "Available Now",
+    image: px(2102587),
+    gallery: [px(1571460), px(259962)],
+    features: ["Resort-style swimming pool", "Clubhouse with spa", "Central landscaped park", "Jogging & cycling tracks", "Kids' adventure play zone", "Multi-purpose sports court"],
+    description:
+      "The Palm Residences brings resort-style living to the heart of Aerocity. Spread across six acres of lush landscaping, it offers thoughtfully designed 2 and 3 BHK homes with world-class amenities that make every day feel like a holiday.",
+  },
+  {
+    id: "verde-park-homes",
+    name: "Verde Park Homes",
+    tagline: "Smart homes, greener living",
+    location: "Zirakpur",
+    type: "2 & 3 BHK Apartments",
+    price: "₹ 52 Lakh onwards",
+    area: "5 acres",
+    floors: "G + 15 Floors",
+    units: "6 units per floor",
+    status: "Under Construction",
+    possession: "Jun 2026",
+    image: px(1571460),
+    gallery: [px(259962), px(1396122)],
+    features: ["Smart home automation", "Rainwater harvesting", "EV charging stations", "Rooftop sky garden", "Co-working study lounge", "Pet-friendly park"],
+    description:
+      "Verde Park Homes is designed for the modern family that values both comfort and conscience. Smart home automation, sustainable systems, and a host of community amenities come together in homes that are as kind to the planet as they are to you.",
+  },
+  {
+    id: "royal-penthouse-collection",
+    name: "Royal Penthouse Collection",
+    tagline: "Above it all",
+    location: "Sector 67, Mohali",
+    type: "5 BHK Penthouses",
+    price: "₹ 4.8 Cr onwards",
+    area: "Tower crown",
+    floors: "Top 3 Floors",
+    units: "4 exclusive penthouses",
+    status: "Under Construction",
+    possession: "Dec 2027",
+    image: px(2121121),
+    gallery: [px(1029599), px(2102587)],
+    features: ["Private rooftop infinity pool", "Outdoor jacuzzi deck", "Personal gym & spa", "Walk-in wardrobe lounge", "Private lift to penthouse", "Panoramic skyline views"],
+    description:
+      "The Royal Penthouse Collection crowns our flagship tower with just four exclusive sky-homes. Each penthouse occupies an entire floor with a private rooftop infinity pool, offering a level of exclusivity and luxury reserved for the very few.",
+  },
+  {
+    id: "heritage-row-houses",
+    name: "Heritage Row Houses",
+    tagline: "Timeless town living",
+    location: "New Chandigarh",
+    type: "3 BHK Row Houses",
+    price: "₹ 1.8 Cr onwards",
+    area: "9 acres",
+    floors: "Ground + 3 Floors",
+    units: "42 row houses",
+    status: "Under Construction",
+    possession: "Sep 2026",
+    image: px(259962),
+    gallery: [px(1571460), px(1396122)],
+    features: ["Independent street-facing homes", "Private parking + garage", "Rooftop sky lounge", "Cobbled heritage streetscape", "Central garden square", "Community clubhouse"],
+    description:
+      "Heritage Row Houses reimagines classic townhouse living with contemporary comfort. A collection of forty-two independent homes arranged along cobbled streets, each with its own garage, rooftop lounge, and access to a central garden square.",
+  },
+];
+
+export const testimonials = [
+  {
+    name: "Rohit Malhotra",
+    role: "CEO, Vertex Technologies",
+    project: "Skyline Business Tower",
+    rating: 5,
+    quote:
+      "We moved our headquarters into Skyline Business Tower and the difference it made to our team's energy is remarkable. The building feels premium from the moment you walk in, and the support team is exceptional.",
+  },
+  {
+    name: "Simran Kaur",
+    role: "Homeowner",
+    project: "Aurelia Heights",
+    rating: 5,
+    quote:
+      "Aurelia Heights is everything they promised and more. The private lift lobby, the views, the finish quality — it genuinely feels like living in a five-star hotel every single day.",
+  },
+  {
+    name: "Arjun Mehta",
+    role: "Retail Entrepreneur",
+    project: "Grand Plaza",
+    rating: 5,
+    quote:
+      "Footfall at Grand Plaza has exceeded our expectations. The location, the design, and the way they manage the property has made it the best retail investment I've made.",
+  },
+  {
+    name: "Neha Sharma",
+    role: "Homeowner",
+    project: "The Palm Residences",
+    rating: 5,
+    quote:
+      "From booking to handover, the transparency was refreshing. The amenities are world-class and our kids love the resort-style pool. RSV Infra delivered exactly what was promised.",
+  },
+];

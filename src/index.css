@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #18130f;
+  color: #f2ede8;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track  { background: #18130f; }
+::-webkit-scrollbar-thumb  { background: #3a2e22; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #c9a46e; }
+
+@layer components {
+
+  /* ── Layout ── */
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-24 lg:py-28;
+  }
+
+  .heading-xl {
+    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1];
+  }
+
+  .section-label {
+    @apply text-gold text-sm font-semibold tracking-[0.3em] uppercase;
+  }
+
+  /* ── Gradient text helpers ── */
+  /* Tailwind v3 cannot resolve custom backgroundImage keys inside @apply,
+     so we use plain CSS for all gradient-text utilities. */
+
+  .gold-text {
+    background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .rust-text {
+    background: linear-gradient(135deg, #e05a1a 0%, #c84b11 60%, #9e3a0c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .brand-text {
+    background: linear-gradient(135deg, #c84b11 0%, #c9a46e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Decorative rules ── */
+  .gold-line {
+    height: 2px;
+    width: 4rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
+  }
+
+  .rust-line {
+    height: 2px;
+    width: 4rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #e05a1a 0%, #c84b11 60%, #9e3a0c 100%);
+  }
+
+  /* ── Cards ── */
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glass-card-warm {
+    background-color: rgba(200, 75, 17, 0.04);
+    @apply backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  /* ── Buttons ── */
+
+  /* Primary — gold fill */
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
+    color: #18130f;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+  .btn-gold:hover {
+    box-shadow: 0 0 32px rgba(201, 164, 110, 0.45);
+    transform: scale(1.03);
+  }
+
+  /* Secondary — rust fill */
+  .btn-rust {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #e05a1a 0%, #c84b11 60%, #9e3a0c 100%);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+  .btn-rust:hover {
+    box-shadow: 0 0 32px rgba(200, 75, 17, 0.45);
+    transform: scale(1.03);
+  }
+
+  /* Ghost — gold outline */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(201, 164, 110, 0.5);
+    color: #e2c898;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
+    color: #18130f;
+    border-color: transparent;
+  }
+
+  /* Ghost — rust outline */
+  .btn-outline-rust {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(200, 75, 17, 0.5);
+    color: #e05a1a;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+  }
+  .btn-outline-rust:hover {
+    background: linear-gradient(135deg, #e05a1a 0%, #c84b11 60%, #9e3a0c 100%);
+    color: #fff;
+    border-color: transparent;
+  }
+}

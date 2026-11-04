@@ -1,0 +1,211 @@
+/* ═══════════════════════════════════════════════
+   Navbar.css — All styles for the Navbar component
+═══════════════════════════════════════════════ */
+
+/* ── Header wrapper ── */
+.navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.5s ease;
+  padding: 0.75rem 0;
+}
+
+.navbar-header.scrolled {
+  background: rgba(24, 19, 15, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0;
+}
+
+/* ── Inner nav row ──
+   Width hero ke container (1500px) ke barabar, taaki logo
+   hero text ke left edge se aur button right edge se align ho */
+.navbar-inner {
+  width: min(1500px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Desktop: 3 columns → logo (left) | links (center) | CTA (right) */
+@media (min-width: 1024px) {
+  .navbar-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+}
+
+/* ── Logo (left) ── */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+}
+
+.navbar-logo img {
+  height: 56px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;   /* logo ko left edge par chipkata hai */
+  display: block;
+  margin-left: 0;                  /* agar PNG mein khali jagah ho to -10px / -20px karo */
+  transition: height 0.5s ease;
+}
+
+@media (min-width: 1024px) {
+  .navbar-logo img {
+    height: 80px;                  /* ← desktop logo size */
+  }
+  .navbar-header.scrolled .navbar-logo img {
+    height: 60px;
+  }
+}
+
+/* ── Desktop nav links (center) ── */
+.navbar-links {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .navbar-links {
+    display: flex;
+  }
+}
+
+.navbar-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  color: #d9cfc7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-link:hover {
+  color: #ffffff;
+}
+
+.navbar-link.active {
+  color: #c9a46e;
+}
+
+.navbar-link-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  width: 1.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
+}
+
+/* ── CTA button (right) ── */
+.navbar-cta {
+  display: none;
+  justify-self: end;
+}
+
+@media (min-width: 1024px) {
+  .navbar-cta {
+    display: block;
+  }
+}
+
+/* ── Mobile hamburger ── */
+.navbar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1.5rem;
+  padding: 0.25rem;
+  transition: color 0.2s;
+}
+
+.navbar-toggle:hover {
+  color: #c9a46e;
+}
+
+@media (min-width: 1024px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
+/* ── Mobile full-screen menu ── */
+.navbar-mobile {
+  position: fixed;
+  inset: 0;
+  top: 80px;                       /* mobile header height (56px logo + padding) */
+  z-index: 40;
+  background: rgba(24, 19, 15, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.navbar-mobile.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-mobile.closed {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (min-width: 1024px) {
+  .navbar-mobile {
+    display: none;
+  }
+}
+
+.navbar-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2.5rem 2rem;
+  list-style: none;
+  margin: 0;
+}
+
+.navbar-mobile-link {
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-mobile-link:hover,
+.navbar-mobile-link.active {
+  color: #c9a46e;
+}
+
+.navbar-mobile-cta {
+  margin-top: 1.5rem;
+}
