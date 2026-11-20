@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-midnight-200">
               <li className="flex gap-3">
                 <FiMapPin className="mt-0.5 shrink-0 text-gold" />
-                <span>SCO 18, Ferozepur Road, Ludhiana, Punjab 141001</span>
+                <span>SCO 18, Punjab 141001</span>
               </li>
               <li className="flex gap-3">
                 <FiPhone className="mt-0.5 shrink-0 text-gold" />

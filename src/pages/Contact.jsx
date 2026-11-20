@@ -4,7 +4,9 @@ import { FiMapPin, FiPhone, FiMail, FiClock, FiSend, FiCheckCircle, FiChevronDow
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import { placeholder } from '../data/projects'
-import commercialImg4 from '../assets/Commercialimage4.png'
+import commercialImg4       from '../assets/Commercialimage4.png'
+import whoWeAreImg          from '../assets/Who We Are.png'
+import leMeridienImg        from '../assets/Meridineimg1.png'
 
 export default function Contact() {
   return (
@@ -16,9 +18,9 @@ export default function Contact() {
         image={commercialImg4}
       />
 
-      <ContactCards />
       <FormAndMap />
       <FAQ />
+      <ContactCards />
     </>
   )
 }
@@ -29,43 +31,113 @@ function ContactCards() {
     {
       icon: FiMapPin,
       title: 'Visit Us',
-      lines: ['SCO 18, Ferozepur Road', 'Ludhiana, Punjab 141001'],
+      lines: ['SCO 18, Punjab 141001'],
+      color: 'from-gold/20 to-gold/5',
+      glow: 'rgba(201,164,110,0.35)',
+      num: '01',
     },
     {
       icon: FiPhone,
       title: 'Call Us',
       lines: ['+91 98765 43210', '+91 98765 43211'],
+      color: 'from-rust/20 to-rust/5',
+      glow: 'rgba(200,75,17,0.35)',
+      num: '02',
     },
     {
       icon: FiMail,
       title: 'Email Us',
       lines: ['sales@rsvinfra.com', 'info@rsvinfra.com'],
+      color: 'from-gold/20 to-gold/5',
+      glow: 'rgba(201,164,110,0.35)',
+      num: '03',
     },
     {
       icon: FiClock,
       title: 'Office Hours',
       lines: ['Mon – Sat: 9:30 AM – 7:00 PM', 'Sunday: By appointment'],
+      color: 'from-rust/20 to-rust/5',
+      glow: 'rgba(200,75,17,0.35)',
+      num: '04',
     },
   ]
 
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-dark-gradient">
       <div className="mx-auto max-w-7xl">
+        {/* Heading */}
+        <Reveal className="mb-14 text-center">
+          <p className="section-label mb-3">Reach Out</p>
+          <h2 className="heading-xl text-white">
+            We're always <span className="gold-text">available</span>
+          </h2>
+        </Reveal>
+
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.1}>
-              <div className="glass-card group h-full p-8 text-center transition-all duration-500 hover:border-gold/40 hover:bg-white/[0.06]">
-                <div className="mx-auto mb-5 grid h-16 w-16 place-items-center rounded-2xl bg-gold/10 text-3xl text-gold transition-transform duration-300 group-hover:scale-110">
+            <motion.div
+              key={c.title}
+              initial={{ opacity: 0, y: 60, rotateX: 15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{
+                y: -12,
+                rotateY: 4,
+                rotateX: -4,
+                scale: 1.03,
+                transition: { duration: 0.35, ease: 'easeOut' },
+              }}
+              style={{ transformStyle: 'preserve-3d', perspective: '800px' }}
+            >
+              <div
+                className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-midnight-800/60 p-8 text-center backdrop-blur-sm"
+                style={{
+                  background: 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)',
+                }}
+              >
+                {/* Glow on hover via motion */}
+                <motion.div
+                  className="pointer-events-none absolute inset-0 rounded-2xl opacity-0"
+                  whileHover={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  style={{
+                    background: `radial-gradient(ellipse at 50% 0%, ${c.glow} 0%, transparent 70%)`,
+                  }}
+                />
+
+                {/* Number watermark */}
+                <span
+                  className="absolute top-4 right-5 font-serif text-5xl font-bold leading-none select-none"
+                  style={{ color: 'rgba(255,255,255,0.04)' }}
+                >
+                  {c.num}
+                </span>
+
+                {/* Icon */}
+                <motion.div
+                  className={`mx-auto mb-6 grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br ${c.color} text-2xl text-gold`}
+                  whileHover={{ rotate: [0, -8, 8, 0], scale: 1.15 }}
+                  transition={{ duration: 0.5 }}
+                  style={{
+                    boxShadow: `0 0 24px ${c.glow}`,
+                  }}
+                >
                   <c.icon />
-                </div>
+                </motion.div>
+
+                {/* Gold line */}
+                <div className="mx-auto mb-5 h-[2px] w-10 rounded-full bg-brand-gradient" />
+
                 <h3 className="font-serif text-xl font-bold text-white">{c.title}</h3>
-                <div className="mt-3 space-y-1">
+                <div className="mt-3 space-y-1.5">
                   {c.lines.map((line) => (
                     <p key={line} className="text-sm text-midnight-200">{line}</p>
                   ))}
                 </div>
               </div>
-            </Reveal>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -91,52 +163,90 @@ function FormAndMap() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          {/* Map preview — clicking opens Google Maps */}
-          <a
-            href="https://share.google/wDBpeADG5SuZ3qPJs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]"
-          >
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ09l-s1aoWe3UIlu2EGas8jhH9Qhwbvao4tvogIJIeqg&s=10"
-              alt="RSV Infra location on Google Maps"
-              className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              style={{ imageRendering: 'auto' }}
-            />
-            {/* Overlay on hover */}
-            <div className="absolute inset-0 flex items-center justify-center bg-midnight-900/0 transition-all duration-300 group-hover:bg-midnight-900/50">
-              <span className="flex items-center gap-2 rounded-full border border-gold/70 bg-midnight-900/80 px-6 py-3 text-sm font-semibold text-gold opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100">
-                <FiMapPin />
-                Open in Google Maps
-              </span>
-            </div>
-          </a>
-          <div className="mt-6 glass-card p-6">
-            <h3 className="font-serif text-lg font-bold text-white">Head Office</h3>
-            <div className="mt-4 space-y-3 text-sm text-midnight-200">
-              <p className="flex items-start gap-3">
-                <FiMapPin className="mt-0.5 shrink-0 text-gold" />
-                RSV Infra, SCO 18, Ferozepur Road, Ludhiana, Punjab 141001, India
-              </p>
-              <p className="flex items-center gap-3">
-                <FiPhone className="shrink-0 text-gold" />
-                +91 98765 43210
-              </p>
-              <p className="flex items-center gap-3">
-                <FiMail className="shrink-0 text-gold" />
-                sales@rsvinfra.com
-              </p>
-            </div>
+          {/* ── Premium location card ── */}
+          <div className="flex flex-col gap-6">
+
+            {/* Main image — clickable map */}
             <a
               href="https://share.google/wDBpeADG5SuZ3qPJs"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-5 py-3 text-sm font-semibold text-gold transition-all duration-300 hover:bg-gold/20 hover:border-gold"
+              className="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]"
             >
-              <FiMapPin className="text-gold" />
-              View on Google Maps
+              <img
+                src={whoWeAreImg}
+                alt="RSV Infra — Premium Real Estate"
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{ height: '340px', objectPosition: 'center top' }}
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-midnight-900/80 via-midnight-900/10 to-transparent" />
+
+              {/* Bottom label */}
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">RSV Infra</p>
+                    <h3 className="mt-1 font-serif text-xl font-bold text-white">Premium Real Estate</h3>
+                    <p className="mt-0.5 text-sm text-midnight-200">Ludhiana, Punjab</p>
+                  </div>
+                  <span className="flex items-center gap-2 rounded-full border border-gold/50 bg-midnight-900/80 px-4 py-2 text-xs font-semibold text-gold opacity-0 backdrop-blur-md transition-all duration-300 group-hover:opacity-100">
+                    <FiMapPin className="shrink-0" /> Open Map
+                  </span>
+                </div>
+              </div>
             </a>
+
+            {/* Info card */}
+            <div className="glass-card overflow-hidden">
+              <div className="h-[3px] w-full bg-brand-gradient" />
+              <div className="p-6">
+                <h3 className="font-serif text-lg font-bold text-white">Get in Touch</h3>
+
+                <div className="mt-5 space-y-4">
+                  <div className="flex items-start gap-4">
+                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold">
+                      <FiPhone />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-midnight-300">Call Us</p>
+                      <a href="tel:+919876543210" className="mt-1 block text-sm text-midnight-100 hover:text-gold transition-colors">+91 98765 43210</a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold">
+                      <FiMail />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-midnight-300">Email</p>
+                      <a href="mailto:sales@rsvinfra.com" className="mt-1 block text-sm text-midnight-100 hover:text-gold transition-colors">sales@rsvinfra.com</a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gold/10 text-gold">
+                      <FiClock />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-midnight-300">Office Hours</p>
+                      <p className="mt-1 text-sm text-midnight-100">Mon – Sat: 9:30 AM – 7:00 PM</p>
+                      <p className="text-sm text-midnight-300">Sunday: By Appointment</p>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="https://share.google/wDBpeADG5SuZ3qPJs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gold-gradient px-5 py-3 text-sm font-semibold text-midnight-900 shadow-[0_0_20px_rgba(201,164,110,0.25)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(201,164,110,0.4)] hover:opacity-90"
+                >
+                  <FiMapPin /> Get Directions on Google Maps
+                </a>
+              </div>
+            </div>
+
           </div>
         </Reveal>
       </div>
@@ -221,8 +331,8 @@ function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="Full Name" name="name" value={form.name} onChange={handleChange} error={errors.name} placeholder="John Doe" />
-        <Field label="Email Address" name="email" type="email" value={form.email} onChange={handleChange} error={errors.email} placeholder="john@example.com" />
+        <Field label="Full Name" name="name" value={form.name} onChange={handleChange} error={errors.name} placeholder="Eg. Harpreet Singh" />
+        <Field label="Email Address" name="email" type="email" value={form.email} onChange={handleChange} error={errors.email} placeholder="eg. harpreet@gmail.com" />
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Phone Number" name="phone" value={form.phone} onChange={handleChange} error={errors.phone} placeholder="+91 98765 43210" />
@@ -250,7 +360,7 @@ function ContactForm() {
           rows={5}
           value={form.message}
           onChange={handleChange}
-          placeholder="Tell us what you're looking for..."
+          placeholder="Aapki requirement batayein..."
           className={`w-full resize-none rounded-xl border bg-midnight-800 px-4 py-3 text-white placeholder-midnight-300 outline-none transition-colors focus:border-gold ${
             errors.message ? 'border-red-400/50' : 'border-white/10'
           }`}
