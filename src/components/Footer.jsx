@@ -9,7 +9,7 @@ export default function Footer() {
       {/* Decorative glow */}
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-gold/10 blur-[120px]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div className="relative mx-auto max-w-[1500px] px-6 py-16 lg:px-10">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
 
           {/* Brand */}

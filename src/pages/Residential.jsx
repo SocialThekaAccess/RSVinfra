@@ -47,7 +47,7 @@ export default function Residential() {
 
       {/* Intro */}
       <section className="section-padding">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1500px]">
           <Reveal className="max-w-2xl">
             <p className="section-label mb-4">Residential Plot Portfolio</p>
             <h2 className="heading-xl text-white">
@@ -71,7 +71,7 @@ export default function Residential() {
 
       {/* Project grid */}
       <section className="pb-20 lg:pb-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <div className="mb-8 text-sm text-midnight-200">
             Showing <span className="font-semibold text-gold">{filtered.length}</span>{' '}
             {filtered.length === 1 ? 'project' : 'projects'}
@@ -159,7 +159,7 @@ function PlotFeaturesBand() {
 
   return (
     <section className="section-padding bg-dark-gradient">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <Reveal className="text-center">
           <p className="section-label mb-4">Plot Infrastructure</p>
           <h2 className="heading-xl text-white">
@@ -183,7 +183,7 @@ function PlotFeaturesBand() {
 function WhyInvest() {
   return (
     <section className="section-padding">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-[1500px] items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal className="order-2 lg:order-1">
           <p className="section-label mb-4">Why Buy a Plot with RSV Infra</p>
           <h2 className="heading-xl text-white">

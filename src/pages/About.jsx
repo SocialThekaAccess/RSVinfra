@@ -37,7 +37,7 @@ export default function About() {
 function StorySection() {
   return (
     <section className="section-padding">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-[1500px] items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <div className="relative">
             <div className="overflow-hidden rounded-2xl">
@@ -132,7 +132,7 @@ function MissionVision() {
 
   return (
     <section className="section-padding bg-dark-gradient">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-label mb-4">What Drives Us</p>
           <h2 className="heading-xl text-white">
@@ -171,7 +171,7 @@ function Values() {
 
   return (
     <section className="section-padding">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-label mb-4">Core Values</p>
           <h2 className="heading-xl text-white">
@@ -267,7 +267,7 @@ function Team() {
 
   return (
     <section className="section-padding">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-label mb-4">Leadership</p>
           <h2 className="heading-xl text-white">
@@ -307,7 +307,7 @@ function Team() {
 function LegacyCTA() {
   return (
     <section className="section-padding bg-dark-gradient">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <div className="grid gap-8 rounded-3xl border border-white/10 bg-midnight-800/40 p-10 text-center md:grid-cols-4 lg:p-14">
           {[
             { end: 45, suffix: '+', label: 'Years of Legacy' },
@@ -388,7 +388,7 @@ function CirclePillars() {
 
   return (
     <section className="section-padding overflow-hidden bg-dark-gradient">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-20">
 
           {/* ── Left: text content ── */}

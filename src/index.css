@@ -4,14 +4,23 @@
 
 :root {
   color-scheme: dark;
+  /* Shared container width — navbar, hero, all sections match this */
+  --site-max-w: 1500px;
+  --site-pad-x: 1.5rem;
 }
 
 * {
   scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background-color: #18130f;
   color: #f2ede8;
   font-family: 'Inter', system-ui, sans-serif;
@@ -20,30 +29,69 @@ body {
 }
 
 /* ── Custom scrollbar ── */
-::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track  { background: #18130f; }
 ::-webkit-scrollbar-thumb  { background: #3a2e22; border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: #c9a46e; }
 
 @layer components {
 
-  /* ── Layout ── */
-  .section-padding {
-    @apply px-6 py-20 md:px-12 lg:px-24 lg:py-28;
+  /* ══════════════════════════════════════════
+     LAYOUT
+  ══════════════════════════════════════════ */
+
+  /* Shared content container — matches navbar 1500px */
+  .site-container {
+    width: 100%;
+    max-width: var(--site-max-w);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
+  @media (min-width: 768px) {
+    .site-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-container {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
+
+  .section-padding {
+    @apply px-5 py-16 md:px-8 lg:px-10 lg:py-24 xl:py-28;
+    max-width: var(--site-max-w);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Full-bleed section wrapper — section tag se lagao */
+  .section-wrap {
+    width: 100%;
+  }
+
+  /* ── Headings ── */
   .heading-xl {
-    @apply font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1];
+    @apply font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.08];
+  }
+
+  .heading-lg {
+    @apply font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1];
   }
 
   .section-label {
-    @apply text-gold text-sm font-semibold tracking-[0.3em] uppercase;
+    @apply text-gold text-xs sm:text-sm font-semibold tracking-[0.3em] uppercase;
   }
 
-  /* ── Gradient text helpers ── */
-  /* Tailwind v3 cannot resolve custom backgroundImage keys inside @apply,
-     so we use plain CSS for all gradient-text utilities. */
-
+  /* ══════════════════════════════════════════
+     GRADIENT TEXT HELPERS
+  ══════════════════════════════════════════ */
   .gold-text {
     background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
     -webkit-background-clip: text;
@@ -65,7 +113,9 @@ body {
     background-clip: text;
   }
 
-  /* ── Decorative rules ── */
+  /* ══════════════════════════════════════════
+     DECORATIVE
+  ══════════════════════════════════════════ */
   .gold-line {
     height: 2px;
     width: 4rem;
@@ -80,7 +130,9 @@ body {
     background: linear-gradient(135deg, #e05a1a 0%, #c84b11 60%, #9e3a0c 100%);
   }
 
-  /* ── Cards ── */
+  /* ══════════════════════════════════════════
+     CARDS
+  ══════════════════════════════════════════ */
   .glass-card {
     @apply bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl;
   }
@@ -90,7 +142,9 @@ body {
     @apply backdrop-blur-md border border-white/10 rounded-2xl;
   }
 
-  /* ── Buttons ── */
+  /* ══════════════════════════════════════════
+     BUTTONS
+  ══════════════════════════════════════════ */
 
   /* Primary — gold fill */
   .btn-gold {
@@ -98,17 +152,27 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
     color: #18130f;
     font-weight: 600;
+    font-size: 0.875rem;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    min-height: 44px;
     transition: all 0.3s;
   }
   .btn-gold:hover {
     box-shadow: 0 0 32px rgba(201, 164, 110, 0.45);
     transform: scale(1.03);
+  }
+
+  @media (min-width: 768px) {
+    .btn-gold {
+      padding: 0.875rem 2rem;
+      font-size: 0.9375rem;
+    }
   }
 
   /* Secondary — rust fill */
@@ -117,12 +181,15 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     background: linear-gradient(135deg, #e05a1a 0%, #c84b11 60%, #9e3a0c 100%);
     color: #fff;
     font-weight: 600;
+    font-size: 0.875rem;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    min-height: 44px;
     transition: all 0.3s;
   }
   .btn-rust:hover {
@@ -136,12 +203,15 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     border: 1px solid rgba(201, 164, 110, 0.5);
     color: #e2c898;
     font-weight: 500;
+    font-size: 0.875rem;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    min-height: 44px;
     transition: all 0.3s;
   }
   .btn-outline:hover {
@@ -150,18 +220,28 @@ body {
     border-color: transparent;
   }
 
+  @media (min-width: 768px) {
+    .btn-outline {
+      padding: 0.875rem 2rem;
+      font-size: 0.9375rem;
+    }
+  }
+
   /* Ghost — rust outline */
   .btn-outline-rust {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.875rem 2rem;
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     border: 1px solid rgba(200, 75, 17, 0.5);
     color: #e05a1a;
     font-weight: 500;
+    font-size: 0.875rem;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    min-height: 44px;
     transition: all 0.3s;
   }
   .btn-outline-rust:hover {
@@ -169,4 +249,41 @@ body {
     color: #fff;
     border-color: transparent;
   }
+
+  /* ══════════════════════════════════════════
+     GRADIENTS (used as background utilities)
+  ══════════════════════════════════════════ */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #c84b11 0%, #c9a46e 100%);
+  }
+
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #e2c898 0%, #c9a46e 50%, #a07840 100%);
+  }
+
+  .bg-dark-gradient {
+    background: linear-gradient(180deg, #18130f 0%, #110e0a 100%);
+  }
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE UTILITY OVERRIDES
+   These override Tailwind where needed at
+   specific breakpoints
+══════════════════════════════════════════ */
+
+/* Make images responsive by default */
+img {
+  max-width: 100%;
+}
+
+/* Prevent text overflow on small screens */
+h1, h2, h3, h4 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Touch target minimum size */
+button, a {
+  min-height: unset; /* don't force on all — only on explicit button classes */
 }

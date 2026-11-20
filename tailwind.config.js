@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '480px',
+        '3xl': '1920px',   // explicit 1920p target
+      },
       colors: {
         // ── Base dark — charcoal matching the logo background ──
         // Logo background is a dark warm charcoal, NOT cold navy-blue

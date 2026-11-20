@@ -64,7 +64,7 @@ function ContactCards() {
 
   return (
     <section className="section-padding bg-dark-gradient">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         {/* Heading */}
         <Reveal className="mb-14 text-center">
           <p className="section-label mb-3">Reach Out</p>
@@ -149,7 +149,7 @@ function ContactCards() {
 function FormAndMap() {
   return (
     <section className="section-padding bg-dark-gradient">
-      <div className="mx-auto grid max-w-7xl items-start gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid max-w-[1500px] items-start gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <p className="section-label mb-4">Send a Message</p>
           <h2 className="heading-xl text-white">

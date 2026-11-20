@@ -47,7 +47,7 @@ export default function Commercial() {
 
       {/* Intro */}
       <section className="section-padding">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[1500px]">
           <Reveal className="max-w-2xl">
             <p className="section-label mb-4">Commercial Portfolio</p>
             <h2 className="heading-xl text-white">
@@ -72,7 +72,7 @@ export default function Commercial() {
 
       {/* Project grid */}
       <section className="pb-20 lg:pb-28">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-[1500px] px-6 lg:px-10">
           <div className="mb-8 text-sm text-midnight-200">
             Showing <span className="font-semibold text-gold">{filtered.length}</span>{' '}
             {filtered.length === 1 ? 'project' : 'projects'}
@@ -152,7 +152,7 @@ function CommercialHighlights() {
 
   return (
     <section className="bg-dark-gradient py-16">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 lg:grid-cols-4 lg:px-10">
+      <div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-8 px-6 lg:grid-cols-4 lg:px-10">
         {highlights.map((h, i) => (
           <Reveal key={h.label} delay={i * 0.1} className="text-center">
             <p className="font-serif text-4xl font-bold brand-text md:text-5xl">{h.stat}</p>
@@ -169,7 +169,7 @@ function CommercialHighlights() {
 function InvestmentBenefits() {
   return (
     <section className="section-padding">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-[1500px] items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <p className="section-label mb-4">Commercial Investment Benefits</p>
           <h2 className="heading-xl text-white">

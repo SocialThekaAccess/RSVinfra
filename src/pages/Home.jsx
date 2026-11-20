@@ -43,7 +43,7 @@ function StatsBar() {
   ]
   return (
     <section className="relative border-y border-white/5 bg-midnight-800/50">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-6 py-14 lg:grid-cols-4 lg:px-10">
+      <div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-8 px-6 py-14 lg:grid-cols-4 lg:px-10">
         {stats.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.1} className="text-center">
             <p className="font-serif text-4xl font-bold md:text-5xl" style={{
@@ -67,7 +67,7 @@ function StatsBar() {
 function AboutPreview() {
   return (
     <section className="section-padding overflow-hidden">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-[1500px] items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <div className="relative">
             <div className="overflow-hidden rounded-2xl">
@@ -138,7 +138,7 @@ function FeaturedProjectShowcase() {
 
   return (
     <section className="bg-dark-gradient">
-      <div className="mx-auto max-w-7xl px-6 pt-20 pb-4 lg:px-10">
+      <div className="mx-auto max-w-[1500px] px-6 pt-20 pb-4 lg:px-10">
         <Reveal>
           <p className="section-label mb-4">Signature Developments</p>
           <h2 className="heading-xl text-white">
@@ -159,7 +159,7 @@ function ShowcaseCard({ project, flip, index }) {
   return (
     <Reveal delay={0.1}>
       <div
-        className={`mx-auto flex max-w-7xl flex-col items-center gap-8 border-t border-white/5 px-6 py-12 lg:px-10 lg:py-16 md:flex-row md:gap-0 ${
+        className={`mx-auto flex max-w-[1500px] flex-col items-center gap-8 border-t border-white/5 px-6 py-12 lg:px-10 lg:py-16 md:flex-row md:gap-0 ${
           flip ? 'md:flex-row-reverse' : ''
         }`}
       >
@@ -250,7 +250,7 @@ function PhilosophyPanel() {
         <div className="hidden w-1/2 md:block bg-midnight-900/60" />
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl items-stretch px-0 md:grid-cols-[100px_1fr_1fr] lg:grid-cols-[120px_1fr_1fr]">
+      <div className="relative mx-auto grid max-w-[1500px] items-stretch px-0 md:grid-cols-[100px_1fr_1fr] lg:grid-cols-[120px_1fr_1fr]">
         <div className="hidden items-center justify-center border-r border-white/10 py-24 md:flex">
           <p
             className="font-serif text-2xl font-bold text-white/20 lg:text-3xl"
@@ -328,7 +328,7 @@ function FeaturedProjects() {
 
   return (
     <section className="section-padding bg-dark-gradient">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <Reveal>
@@ -401,7 +401,7 @@ function WhyChooseUs() {
 
   return (
     <section className="section-padding">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1500px]">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="section-label mb-4">Why RSV Infra</p>
           <h2 className="heading-xl text-white">

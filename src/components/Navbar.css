@@ -160,11 +160,12 @@
 .navbar-mobile {
   position: fixed;
   inset: 0;
-  top: 80px;                       /* mobile header height (56px logo + padding) */
+  top: var(--navbar-h, 76px);    /* matches actual header height via CSS var */
   z-index: 40;
   background: rgba(24, 19, 15, 0.98);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  overflow-y: auto;
   transition: opacity 0.3s, visibility 0.3s;
 }
 
