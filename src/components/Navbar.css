@@ -22,15 +22,33 @@
 }
 
 /* ── Inner nav row ──
-   Width hero ke container (1500px) ke barabar, taaki logo
-   hero text ke left edge se aur button right edge se align ho */
+   Full width with responsive padding — logo always at screen edge */
 .navbar-inner {
-  width: min(1500px, calc(100% - 3rem));
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .navbar-inner {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-inner {
+    padding: 0 2.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .navbar-inner {
+    padding: 0 3rem;
+  }
 }
 
 /* Desktop: 3 columns → logo (left) | links (center) | CTA (right) */

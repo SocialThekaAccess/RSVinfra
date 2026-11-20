@@ -63,20 +63,33 @@
 
 .hero-text-inner {
   position: relative;
-  width: min(1500px, calc(100% - 2.5rem));
+  width: 100%;
   margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   padding-bottom: 7rem;
 }
 
 @media (min-width: 768px) {
   .hero-text-inner {
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 8rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-text-inner {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     padding-bottom: 9rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-text-inner {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
