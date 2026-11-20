@@ -139,7 +139,10 @@
   cursor: pointer;
   color: #ffffff;
   font-size: 1.5rem;
-  padding: 0.25rem;
+  /* 44px minimum touch target */
+  padding: 0.625rem;
+  min-width: 44px;
+  min-height: 44px;
   transition: color 0.2s;
 }
 

@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-gold/10 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
 
           {/* Brand */}
           <div>
@@ -27,7 +27,7 @@ export default function Footer() {
                   key={i}
                   href="#"
                   aria-label="Social link"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-midnight-100 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-midnight-900"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-white/10 text-midnight-100 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-midnight-900"
                 >
                   <Icon />
                 </a>
@@ -77,7 +77,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-4 text-sm text-midnight-200">
               <li className="flex gap-3">
                 <FiMapPin className="mt-0.5 shrink-0 text-gold" />
-                <span>RSV Tower, Sector 66, Mohali, Punjab 160066</span>
+                <span>SCO 18, Ferozepur Road, Ludhiana, Punjab 141001</span>
               </li>
               <li className="flex gap-3">
                 <FiPhone className="mt-0.5 shrink-0 text-gold" />
@@ -95,7 +95,7 @@ export default function Footer() {
                 placeholder="Your email"
                 className="w-full bg-transparent px-4 py-2.5 text-sm text-white placeholder-midnight-300 outline-none"
               />
-              <button className="bg-gold-gradient px-4 text-midnight-900 transition-all hover:opacity-90">
+              <button className="shrink-0 bg-gold-gradient px-4 py-3 text-midnight-900 transition-all hover:opacity-90">
                 <FiArrowUpRight />
               </button>
             </div>

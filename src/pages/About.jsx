@@ -4,7 +4,13 @@ import { FiArrowRight, FiTarget, FiEye, FiHeart } from 'react-icons/fi'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
 import AnimatedCounter from '../components/AnimatedCounter'
-import { px, img } from '../data/projects'
+import { placeholder } from '../data/projects'
+import alegacy              from '../assets/Alegacyoftrust.png'
+import commercialBuildings  from '../assets/CommercialBuildings.png'
+import commercialImg1       from '../assets/CommercialImage.png'
+import residentialBldg      from '../assets/ResidentialBuildings.png'
+import residentialImg       from '../assets/ResidentialImage.png'
+import commercialPlots      from '../assets/CommercialPlots.png'
 
 export default function About() {
   return (
@@ -13,7 +19,7 @@ export default function About() {
         label="Our Story"
         title="Four decades of building trust"
         subtitle="RSV Infra is redefining real estate development in North India through transparency, integrity, and timely delivery — with a 45-year legacy rooted in infrastructure excellence."
-        image={px(323705, 2000)}
+        image={commercialBuildings}
       />
 
       <StorySection />
@@ -36,7 +42,7 @@ function StorySection() {
           <div className="relative">
             <div className="overflow-hidden rounded-2xl">
               <img
-                src={px(2157532, 900)}
+                src={commercialBuildings}
                 alt="RSV Infra development"
                 className="aspect-[4/3] w-full object-cover"
               />
@@ -253,10 +259,10 @@ function Timeline() {
 /* ----------------------------- Team ----------------------------- */
 function Team() {
   const team = [
-    { name: 'Rajveer Singh Virk', role: 'Founder & Chairman', img: px(220453, 500) },
-    { name: 'Sandeep Verma', role: 'Managing Director', img: px(614810, 500) },
-    { name: 'Anita Kapoor', role: 'Director, Design', img: px(774909, 500) },
-    { name: 'Vikram Khanna', role: 'Head of Projects', img: px(1222271, 500) },
+    { name: 'Rajveer Singh Virk', role: 'Founder & Chairman', img: residentialBldg },
+    { name: 'Sandeep Verma', role: 'Managing Director', img: commercialPlots },
+    { name: 'Anita Kapoor', role: 'Director, Design', img: residentialImg },
+    { name: 'Vikram Khanna', role: 'Head of Projects', img: commercialImg1 },
   ]
 
   return (

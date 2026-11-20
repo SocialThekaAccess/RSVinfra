@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiMapPin, FiPhone, FiMail, FiClock, FiSend, FiCheckCircle, FiChevronDown } from 'react-icons/fi'
 import PageHero from '../components/PageHero'
 import Reveal from '../components/Reveal'
-import { px, img } from '../data/projects'
+import { placeholder } from '../data/projects'
+import commercialImg4 from '../assets/Commercialimage4.png'
 
 export default function Contact() {
   return (
@@ -12,7 +13,7 @@ export default function Contact() {
         label="Get in Touch"
         title="Let's start a conversation"
         subtitle="Whether you're looking for your dream home, the perfect commercial space, or just have a question — our team is here to help. Reach out and experience the RSV Infra way."
-        image={px(1098460, 2000)}
+        image={commercialImg4}
       />
 
       <ContactCards />
@@ -28,7 +29,7 @@ function ContactCards() {
     {
       icon: FiMapPin,
       title: 'Visit Us',
-      lines: ['RSV Tower, Sector 66', 'Mohali, Punjab 160066'],
+      lines: ['SCO 18, Ferozepur Road', 'Ludhiana, Punjab 141001'],
     },
     {
       icon: FiPhone,
@@ -90,23 +91,33 @@ function FormAndMap() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="overflow-hidden rounded-2xl border border-white/10">
-            <iframe
-              title="RSV Infra Location"
-              src="https://www.google.com/maps?q=Mohali+Sector+66&output=embed"
-              width="100%"
-              height="100%"
-              style={{ minHeight: '420px', border: 0 }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+          {/* Map preview — clicking opens Google Maps */}
+          <a
+            href="https://share.google/wDBpeADG5SuZ3qPJs"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.6)]"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ09l-s1aoWe3UIlu2EGas8jhH9Qhwbvao4tvogIJIeqg&s=10"
+              alt="RSV Infra location on Google Maps"
+              className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              style={{ imageRendering: 'auto' }}
             />
-          </div>
+            {/* Overlay on hover */}
+            <div className="absolute inset-0 flex items-center justify-center bg-midnight-900/0 transition-all duration-300 group-hover:bg-midnight-900/50">
+              <span className="flex items-center gap-2 rounded-full border border-gold/70 bg-midnight-900/80 px-6 py-3 text-sm font-semibold text-gold opacity-0 shadow-xl backdrop-blur-md transition-all duration-300 group-hover:opacity-100">
+                <FiMapPin />
+                Open in Google Maps
+              </span>
+            </div>
+          </a>
           <div className="mt-6 glass-card p-6">
             <h3 className="font-serif text-lg font-bold text-white">Head Office</h3>
             <div className="mt-4 space-y-3 text-sm text-midnight-200">
               <p className="flex items-start gap-3">
                 <FiMapPin className="mt-0.5 shrink-0 text-gold" />
-                RSV Tower, Sector 66, Mohali, Punjab 160066, India
+                RSV Infra, SCO 18, Ferozepur Road, Ludhiana, Punjab 141001, India
               </p>
               <p className="flex items-center gap-3">
                 <FiPhone className="shrink-0 text-gold" />
@@ -117,6 +128,15 @@ function FormAndMap() {
                 sales@rsvinfra.com
               </p>
             </div>
+            <a
+              href="https://share.google/wDBpeADG5SuZ3qPJs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-5 py-3 text-sm font-semibold text-gold transition-all duration-300 hover:bg-gold/20 hover:border-gold"
+            >
+              <FiMapPin className="text-gold" />
+              View on Google Maps
+            </a>
           </div>
         </Reveal>
       </div>

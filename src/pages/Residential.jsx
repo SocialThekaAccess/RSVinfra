@@ -1,11 +1,17 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { FiArrowRight } from 'react-icons/fi'
+import { FiArrowRight, FiMapPin } from 'react-icons/fi'
 import PageHero from '../components/PageHero'
 import ProjectCard from '../components/ProjectCard'
 import Reveal from '../components/Reveal'
-import { px, img, residentialProjects } from '../data/projects'
+import { placeholder, residentialProjects } from '../data/projects'
+import residentialImg   from '../assets/ResidentialImage.png'
+import residentialImg2  from '../assets/Residential2.png'
+import residentialBldg  from '../assets/ResidentialBuildings.png'
+import residentialPlots from '../assets/ResidentialPlots.png'
+
+const whyImages = [residentialPlots, residentialImg2, residentialBldg, residentialImg]
 
 export default function Residential() {
   const [typeFilter, setTypeFilter] = useState('All')
@@ -33,31 +39,31 @@ export default function Residential() {
   return (
     <>
       <PageHero
-        label="Residential Developments"
-        title="Homes designed for living well"
-        subtitle="From sky-villas with private lift lobbies to gated villa communities and smart family homes, every RSV Infra residence is crafted to turn the everyday into the extraordinary."
-        image={px(1029599, 2000)}
+        label="Residential Plots"
+        title="Own land where your legacy begins"
+        subtitle="Premium RERA-approved residential plots across Ludhiana's most sought-after locations. Wide roads, complete infrastructure, and clear titles — everything you need to build your dream home."
+        image={residentialImg2}
       />
 
       {/* Intro */}
       <section className="section-padding">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-2xl">
-            <p className="section-label mb-4">Residential Portfolio</p>
+            <p className="section-label mb-4">Residential Plot Portfolio</p>
             <h2 className="heading-xl text-white">
-              Where comfort meets <span className="gold-text">craftsmanship</span>
+              The right plot, in the <span className="gold-text">right location</span>
             </h2>
             <p className="mt-5 text-lg text-midnight-200">
-              Our residential developments span the full spectrum of luxury —
-              from ultra-exclusive penthouses to thoughtfully designed family
-              apartments. Each home reflects our belief that where you live
-              should be as inspiring as what you do.
+              RSV Infra's residential plots are set in fully planned, gated
+              communities with wide internal roads, underground utilities, lush
+              green belts, and all civic amenities in place. Choose your size,
+              choose your location — and build exactly what you envision.
             </p>
           </Reveal>
 
           {/* Filters */}
           <div className="mt-12 space-y-6 border-t border-white/5 pt-8">
-            <FilterRow label="Configuration" options={types} value={typeFilter} onChange={setTypeFilter} />
+            <FilterRow label="Plot Type" options={types} value={typeFilter} onChange={setTypeFilter} />
             <FilterRow label="Status" options={statuses} value={statusFilter} onChange={setStatusFilter} />
           </div>
         </div>
@@ -98,11 +104,11 @@ export default function Residential() {
         </div>
       </section>
 
-      {/* Amenities band */}
-      <AmenitiesBand />
+      {/* Plot features band */}
+      <PlotFeaturesBand />
 
-      {/* Lifestyle showcase */}
-      <LifestyleShowcase />
+      {/* Why invest section */}
+      <WhyInvest />
 
       {/* CTA */}
       <ResidentialCTA />
@@ -135,31 +141,33 @@ function FilterRow({ label, options, value, onChange }) {
   )
 }
 
-function AmenitiesBand() {
-  const amenities = [
-    'Resort-style pools',
-    'Sky-deck lounges',
-    'Private lift lobbies',
-    'Clubhouse & spa',
-    'Landscaped gardens',
-    'Smart home automation',
-    'Sports courts',
-    'EV charging',
-    'Kids play zones',
-    'Rooftop gardens',
+function PlotFeaturesBand() {
+  const features = [
+    'RERA Approved',
+    'Clear Title Deeds',
+    'Wide 30–60 Ft Roads',
+    'Underground Electricity',
+    'Sewerage & Drainage',
+    'Water Supply Lines',
+    'Gated Community',
+    'Street Lighting',
+    'Landscaped Green Belts',
+    'Children\'s Play Area',
+    'Easy Home Loan',
+    'Flexible Plot Sizes',
   ]
 
   return (
     <section className="section-padding bg-dark-gradient">
       <div className="mx-auto max-w-7xl">
         <Reveal className="text-center">
-          <p className="section-label mb-4">World-Class Amenities</p>
+          <p className="section-label mb-4">Plot Infrastructure</p>
           <h2 className="heading-xl text-white">
-            Everything you need, <span className="gold-text">and more</span>
+            Everything in place, <span className="gold-text">before you build</span>
           </h2>
         </Reveal>
         <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {amenities.map((a, i) => (
+          {features.map((a, i) => (
             <Reveal key={a} delay={i * 0.05}>
               <span className="glass-card px-5 py-3 text-sm font-medium text-midnight-100 transition-colors hover:text-gold">
                 {a}
@@ -172,27 +180,27 @@ function AmenitiesBand() {
   )
 }
 
-function LifestyleShowcase() {
+function WhyInvest() {
   return (
     <section className="section-padding">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal className="order-2 lg:order-1">
-          <p className="section-label mb-4">The RSV Lifestyle</p>
+          <p className="section-label mb-4">Why Buy a Plot with RSV Infra</p>
           <h2 className="heading-xl text-white">
-            More than a home — a <span className="gold-text">way of living</span>
+            Your plot, your <span className="gold-text">rules</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-midnight-200">
-            When you choose an RSV Infra home, you're choosing a community
-            where every detail has been considered. From the moment you drive
-            through the gates to the sunset views from your private balcony,
-            life here is designed to feel effortless and exceptional.
+            Unlike apartments, a plot gives you complete freedom — build now,
+            build later, or simply hold and watch your investment grow. RSV Infra
+            plots are in locations that have consistently delivered strong
+            appreciation, backed by transparent deals and a 45-year legacy.
           </p>
           <ul className="mt-8 space-y-4">
             {[
-              'Thoughtfully planned communities with green open spaces',
-              'Architecturally distinctive towers and villa streetscapes',
-              'Concierge-style property management and support',
-              'Sustainable systems that lower your cost of living',
+              'Build at your own pace — no pressure, no penalties',
+              'High appreciation potential in prime Ludhiana corridors',
+              'Full freedom of design — your architect, your vision',
+              'Passive investment option with strong rental demand nearby',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-midnight-100">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
@@ -201,45 +209,25 @@ function LifestyleShowcase() {
             ))}
           </ul>
           <Link to="/contact" className="btn-outline mt-10">
-            Enquire Now
-            <FiArrowRight />
+            Enquire Now <FiArrowRight />
           </Link>
         </Reveal>
 
         <Reveal delay={0.15} className="order-1 lg:order-2">
           <div className="grid grid-cols-2 gap-4">
-            <div className="overflow-hidden rounded-2xl">
-              <img
-                src={px(2102587, 700)}
-                alt="Residential pool"
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            <div className="mt-8 overflow-hidden rounded-2xl">
-              <img
-                src={px(1571460, 700)}
-                alt="Residential interior"
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            <div className="-mt-8 overflow-hidden rounded-2xl">
-              <img
-                src={px(259962, 700)}
-                alt="Residential living space"
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            <div className="overflow-hidden rounded-2xl">
-              <img
-                src={px(2121121, 700)}
-                alt="Residential facade"
-                loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
+            {whyImages.map((src, i) => (
+              <div
+                key={i}
+                className={`overflow-hidden rounded-2xl ${i === 1 ? 'mt-8' : ''} ${i === 2 ? '-mt-8' : ''}`}
+              >
+                <img
+                  src={src}
+                  alt={`Residential plot ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </Reveal>
       </div>
@@ -250,27 +238,29 @@ function LifestyleShowcase() {
 function ResidentialCTA() {
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img
-          src={px(1571460, 2000)}
-          alt="RSV Infra home"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-midnight-900/85" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900" />
       <div className="relative mx-auto max-w-4xl px-6 py-24 text-center lg:py-32">
         <Reveal>
           <h2 className="heading-xl text-white">
-            Your dream home is <span className="gold-text">closer than you think</span>
+            Your dream plot is <span className="gold-text">closer than you think</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg text-midnight-100">
-            Schedule a visit to any of our residential communities and
-            experience the difference for yourself.
+            Schedule a site visit to any of our residential plot communities and
+            walk the land that could be yours.
           </p>
-          <Link to="/contact" className="btn-gold mt-10">
-            Book a Site Visit
-            <FiArrowRight />
-          </Link>
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <Link to="/contact" className="btn-gold">
+              Book a Site Visit <FiArrowRight />
+            </Link>
+            <a
+              href="https://share.google/wDBpeADG5SuZ3qPJs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              <FiMapPin /> View on Google Maps
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>

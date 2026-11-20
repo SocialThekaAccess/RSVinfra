@@ -1,9 +1,17 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { FiArrowRight, FiMapPin } from 'react-icons/fi'
 import PageHero from '../components/PageHero'
 import ProjectCard from '../components/ProjectCard'
 import Reveal from '../components/Reveal'
-import { px, img, commercialProjects } from '../data/projects'
+import { placeholder, commercialProjects } from '../data/projects'
+import commercialImg1   from '../assets/CommercialImage.png'
+import commercialImg4   from '../assets/Commercialimage4.png'
+import commercialPlots  from '../assets/CommercialPlots.png'
+import commercialPlots6 from '../assets/CommercialPlots6.png'
+
+const investImages = [commercialPlots, commercialImg1, commercialImg4, commercialPlots6]
 
 export default function Commercial() {
   const [typeFilter, setTypeFilter] = useState('All')
@@ -32,12 +40,12 @@ export default function Commercial() {
     <>
       <PageHero
         label="Commercial Developments"
-        title="Spaces where business thrives"
-        subtitle="Grade-A office towers, retail destinations, and corporate campuses engineered for ambition. Every commercial development by RSV Infra is designed to give your enterprise the stage it deserves."
-        image={px(2157532, 2000)}
+        title="Land and showrooms built for business"
+        subtitle="Prime commercial land parcels and high-street showroom units across Ludhiana's most active commercial corridors. Invest where the city grows."
+        image={commercialPlots}
       />
 
-      {/* Why commercial with us */}
+      {/* Intro */}
       <section className="section-padding">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-2xl">
@@ -46,10 +54,11 @@ export default function Commercial() {
               Addresses that <span className="gold-text">command attention</span>
             </h2>
             <p className="mt-5 text-lg text-midnight-200">
-              From soaring business towers to high-footfall retail malls, our
-              commercial portfolio spans every category a growing enterprise
-              needs — each built to the highest standards of quality and
-              sustainability.
+              From large commercial land parcels ready for hotels, offices, and
+              mixed-use buildings, to premium ground-floor showroom units with
+              glass facades and double-height ceilings — RSV Infra's commercial
+              portfolio puts your investment on the city's most sought-after
+              corridors.
             </p>
           </Reveal>
 
@@ -96,8 +105,11 @@ export default function Commercial() {
         </div>
       </section>
 
-      {/* Commercial highlights band */}
+      {/* Stats band */}
       <CommercialHighlights />
+
+      {/* Investment benefits */}
+      <InvestmentBenefits />
 
       {/* CTA */}
       <CommercialCTA />
@@ -132,10 +144,10 @@ function FilterRow({ label, options, value, onChange }) {
 
 function CommercialHighlights() {
   const highlights = [
-    { stat: '6', label: 'Commercial Projects' },
-    { stat: '40 L+', label: 'Sq.Ft. Built-up' },
-    { stat: '100%', label: 'Power Backup' },
-    { stat: 'LEED', label: 'Certified Towers' },
+    { stat: '4+', label: 'Commercial Projects' },
+    { stat: '₹ Cr+', label: 'Investment Value' },
+    { stat: '100%', label: 'Clear Title' },
+    { stat: 'RERA', label: 'Approved Projects' },
   ]
 
   return (
@@ -154,21 +166,84 @@ function CommercialHighlights() {
   )
 }
 
-function CommercialCTA() {
+function InvestmentBenefits() {
   return (
     <section className="section-padding">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <Reveal>
+          <p className="section-label mb-4">Commercial Investment Benefits</p>
+          <h2 className="heading-xl text-white">
+            Why commercial land & <span className="gold-text">showrooms?</span>
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-midnight-200">
+            Commercial properties in Ludhiana's high-growth corridors deliver
+            strong rental yields and capital appreciation. Whether you're
+            looking for a showroom for your brand or land for a future
+            development — RSV Infra puts you in the right spot.
+          </p>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {[
+              { icon: '📈', title: 'High Appreciation', text: 'Ludhiana commercial corridors have delivered consistent land value growth year-on-year.' },
+              { icon: '🏬', title: 'Premium Showrooms', text: 'Ground-floor, glass-facade showroom units designed for maximum brand visibility.' },
+              { icon: '🗺️', title: 'Prime Locations', text: 'Ferozepur Road, Mall Road, GT Road — Ludhiana\'s most sought-after commercial strips.' },
+              { icon: '📋', title: 'All Approvals Ready', text: 'Commercial zoning, NOCs, and clear title — zero legal hassle, ready to transact.' },
+            ].map((b) => (
+              <div key={b.title} className="glass-card p-6">
+                <div className="mb-3 text-2xl">{b.icon}</div>
+                <h3 className="font-serif text-lg font-bold text-white">{b.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-midnight-200">{b.text}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="grid grid-cols-2 gap-4">
+            {investImages.map((src, i) => (
+              <div
+                key={i}
+                className={`overflow-hidden rounded-2xl ${i === 1 ? 'mt-8' : ''} ${i === 2 ? '-mt-8' : ''}`}
+              >
+                <img
+                  src={src}
+                  alt={`Commercial ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function CommercialCTA() {
+  return (
+    <section className="section-padding bg-dark-gradient">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <Reveal>
           <h2 className="heading-xl text-white">
             Looking for the right <span className="gold-text">commercial space?</span>
           </h2>
           <p className="mt-5 text-lg text-midnight-200">
-            Our commercial specialists will help you find or invest in a space
-            that aligns with your business goals.
+            Our commercial specialists will help you find or invest in a
+            land parcel or showroom unit that aligns with your business goals.
           </p>
-          <a href="/contact" className="btn-gold mt-8">
-            Talk to a Specialist
-          </a>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link to="/contact" className="btn-gold">
+              Talk to a Specialist <FiArrowRight />
+            </Link>
+            <a
+              href="https://share.google/wDBpeADG5SuZ3qPJs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              <FiMapPin /> View Location
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>
